@@ -1,0 +1,25 @@
+{
+    "js": {
+        "about": "005",
+        "axios": "005",
+        "blog-post": "005",
+        "case-study": "005",
+        "common": "005",
+        "contact": "005",
+        "customers": "005",
+        "home": "005",
+        "press-release": "005"
+    },
+    "css": {
+        "about": "004",
+        "blog-view": "004",
+        "bootstrap": "004",
+        "case-study": "004",
+        "common": "004",
+        "contact-us": "004",
+        "customers": "004",
+        "home": "004",
+        "press-release": "004",
+        "roi": "004"
+    }
+}

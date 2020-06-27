@@ -1,0 +1,281 @@
+/*** 
+    Header
+    ***************/
+
+@mixin navbar-light {
+    background: $white;
+    @include box-shadow(0 4px 6px 0 rgba(12, 0, 46, .06));
+
+    .logo-light {
+        display: none;
+    }
+
+    .brand-logo {
+        path.purple {
+            fill: #9b7cb7;
+        }
+        path.blue {
+            fill: #71c7ef;
+        }
+    }
+}
+
+
+.header {
+    transition: background 0.2s linear, transform 0.2s linear;
+}
+
+.brand-logo {
+    width: 169px;
+    height: 61px;
+
+    @media only screen and (min-width: map-get($grid-breakpoints, lg)) and (max-width: map-get($grid-breakpoints, lg) + 90) {
+        width: 150px;
+    }
+}
+
+.navbar {
+    .container {
+        @media only screen and (min-width: map-get($grid-breakpoints, lg)) and (max-width: map-get($grid-breakpoints, xl)) {
+            max-width: 100%;
+        }
+    }
+}
+
+.nav-link {
+    transition: color 0.3s ease;
+
+    @include media-breakpoint-up(lg) {
+        span:before {
+            @include psedo-absolute();
+            height: 1px;
+            @include position((top: calc(100% + 5px), right: 0, left: 0));
+            transition: transform 0.3s ease-in-out;
+            transform: scaleX(0);
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        display: inline-block;
+    }
+}
+
+.nav-item {
+    @include media-breakpoint-up(lg) {
+        &.active span:before {
+            transform: scaleX(1);
+        }
+    }
+}
+
+.navbar-dark {
+    .home & {
+        background: $primary;
+    }
+
+    .brand-logo {
+        path.blue, path.purple {
+            fill: rgba(255,255,255,0.5);
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+
+        .hamburger-cross span,
+        .hamburger span {
+            background: $white;
+        }
+
+        .page & {
+            @include navbar-light();
+
+            .nav-link {
+                color: $dark;
+
+                @include hover-focus {
+                    color: $orange;
+                }
+            }
+
+            .nav-item.active .nav-link {
+                color: $orange;
+            }
+
+            .hamburger-cross span,
+            .hamburger span {
+                background: $orange;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .nav-link {
+            span:before {
+                background: $white;
+            }
+
+            @include hover-focus-active {
+                span:before {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}
+
+
+.navbar-light {
+    @include navbar-light();
+
+    @include media-breakpoint-down(md) {
+
+        .hamburger-cross span,
+        .hamburger span {
+            background: $orange;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .nav-link {
+            span:before {
+                background: $orange;
+            }
+
+            @include hover-focus-active {
+                span:before {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+
+    .navbar-toggler {
+        @include size(33px, 33px);
+        display: block;
+
+        &:focus {
+            outline: none;
+        }
+
+        .hamburger,
+        .hamburger-cross,
+        .hamburger span {
+            @include position((top: 0, left: 0));
+        }
+
+        .hamburger-cross span,
+        .hamburger span {
+            @include border-radius($border-radius);
+            transition: .2s ease-in-out;
+        }
+
+        .hamburger {
+            span {
+                @include size(0, 2px);
+                margin: 7px 0;
+            }
+
+            @for $i from 1 to 4 {
+                span:nth-child(#{$i}) {
+                    transition-delay: #{($i - 1) * 0.1}s;
+                }
+            }
+
+        }
+
+        .hamburger-cross {
+            transform: rotate(45deg);
+
+            span {
+                display: block;
+            }
+
+            span:nth-child(1) {
+                @include position((top: 0, right: 15.5px, left: auto));
+                @include size(2px, 100%);
+                transition-delay: .3s;
+            }
+
+            span:nth-child(2) {
+                @include position((top: 15.5px, left: 0));
+                @include size(100%, 2px);
+                transition-delay: .4s;
+            }
+
+        }
+
+        &.collapsed {
+            .hamburger {
+                span {
+                    width: 100%;
+                }
+
+                $j: 3;
+
+                @for $i from 1 to 4 {
+                    span:nth-child(#{$i}) {
+                        transition-delay: #{$j * 0.1}s;
+                    }
+
+                    $j: $j+1;
+                }
+            }
+
+            .hamburger-cross {
+                span:nth-child(1) {
+                    height: 0;
+                    transition-delay: 0s;
+                }
+
+                span:nth-child(2) {
+                    width: 0;
+                    transition-delay: .2s;
+                }
+            }
+        }
+
+
+    }
+
+    .navbar-collapse {
+        max-height: 400px;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out 0.2s, padding 0.3s ease-in-out 0.2s;
+
+        &.collapse {
+            max-height: 0;
+            padding: 0 !important;
+        }
+    }
+}
+
+.top-news-close {
+    @include position((top: 0, right: 0, bottom: 0));
+    height: 24px;
+
+    #{$rtl-class} & {
+        @include position((right: auto, left: 0));
+    }
+}
+
+#{$rtl-class} {
+
+    .navbar-toggler .hamburger,
+    .navbar-toggler .hamburger-cross,
+    .navbar-toggler .hamburger span {
+        @include position((right: 0, left: auto));
+    }
+
+    .navbar-toggler .hamburger-cross span:nth-child(1) {
+        @include position((right: auto, left: 15.5px));
+    }
+
+    .navbar-toggler .hamburger-cross span:nth-child(2) {
+        @include position((right: 0, left: auto));
+    }
+
+
+}

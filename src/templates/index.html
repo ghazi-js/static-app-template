@@ -1,0 +1,15 @@
+<!-- Include Header -->
+@@include('./components/header.html', { 
+    "title": "Arabot &mdash; Intelligent Arabic Bot",
+    "styles": ["bootstrap.css", "common.css", "home.css"],
+    "activeNav": "home",
+    "rootClasses": "home has-top-bar"
+})
+
+<div>
+    <h1>Home Page</h1>
+</div>
+
+@@include('./components/footer.html', {
+    "scripts": ["common.js", "template.js"]
+})

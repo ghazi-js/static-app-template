@@ -1,0 +1,437 @@
+%cover-background {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/*** 
+    Hero Section
+    ***************/
+
+$skew-height: 100px;
+
+.hero-wrapper {
+    padding-top: 6rem;
+    transition: padding-top 0.2s linear;
+
+    .has-top-bar & {
+        padding-top: 9rem;
+    }
+
+    &:before,
+    &:after {
+        @include psedo-absolute();
+        left: 0;
+        width: 100%;
+        @include box-shadow(0px 3px 6px rgba($black, 0.2));
+    }
+
+    &:before {
+        height: calc(100% + #{$skew-height * 2});
+        background: $primary;
+        top: -$skew-height;
+        transform: skew(0, -4.2deg);
+        z-index: 1;
+
+        @include media-breakpoint-down(xs) {
+            & {
+                top: -$skew-height - 35px;
+            }
+        }
+    }
+
+    &:after {
+        height: 300px;
+        bottom: $skew-height / -2;
+        background: $purple-light;
+        transform: skew(0, 7deg);
+
+        @include media-breakpoint-down(md) {
+            & {
+                bottom: -75px;
+            }
+        }
+
+        @include media-breakpoint-down(xs) {
+            & {
+                bottom: -60px;
+            }
+        }
+
+    }
+}
+
+.hero-content {
+    $hero-height: 525px;
+    @extend %cover-background;
+    height: $hero-height;
+    z-index: 3;
+    transition: height 0.2s linear;
+
+    &:before {
+        @include psedo-absolute;
+        @include position((bottom: -$skew-height, left: 0));
+        @include size(100%, ($hero-height + ($skew-height *2)));
+        background: url('#{$assets-path}/images/hero-pattern.png');
+        transform: skew(0, -4.2deg);
+
+        @include media-breakpoint-down(xs) {
+            & {
+                bottom: -$skew-height + 35px;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        height: auto;
+    }
+}
+
+.chat-sprite {
+    background: url('#{$assets-path}/images/home/chat-sprite.png') no-repeat;
+
+
+    &.chat-message-1,
+    &.chat-message-2 {
+        @include size(148px, 47px);
+    }
+
+    &.chat-message-1 {
+        background-position: -5px -5px;
+        @include position((top: 144px, left: 25px));
+    }
+
+    &.chat-message-2 {
+        background-position: -5px -62px;
+        @include position((top: 224px, right: 30px));
+    }
+}
+
+.video-anchor {
+
+    &,
+    .player-icon {
+        transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+    }
+
+    .player-icon {
+        @include size(32px, 32px);
+        border: 1px solid $white;
+
+        .icon-play {
+            font-size: 13px;
+            margin-left: 0.1rem;
+        }
+    }
+
+    &:hover .player-icon {
+        background: $secondary;
+        border-color: $secondary;
+    }
+
+    &:hover {
+        color: $secondary;
+    }
+
+}
+
+@include media-breakpoint-down(xs) {
+    .video-plyr {
+        height: auto;
+    }
+}
+
+
+/*** 
+    Enterprises Logos Section
+    ***************/
+
+.enterprise {
+    .animate-element {
+        height: 64px;
+    }
+}
+
+/*** 
+    Advantages
+    ***************/
+
+.media {
+    @include media-breakpoint-down(sm) {
+        .benefits-sprite {
+            animation: none;
+            position: absolute;
+            opacity: 0.05 !important;
+            @include position((bottom: 15px, left: 15px));
+        }
+
+        .benefits-sprite.order-2 {
+            @include position((top: 15px, right: 0, bottom: auto, left: auto));
+
+        }
+    }
+}
+
+.benefits-sprite {
+    background: url('#{$assets-path}/images/home/benefits-sprite.png') no-repeat;
+    @include size(256px, 260px);
+    display: block;
+}
+
+.sprite-engagement {
+    @include size(256px, 260px);
+    background-position: -5px -5px;
+}
+
+.sprite-dialects {
+    background-position: -271px -5px;
+}
+
+.sprite-multilingual {
+    background-position: -537px -5px;
+}
+
+.sprite-growth {
+    background-position: -5px -275px;
+}
+
+#{$rtl-class} {
+
+    .media>img {
+        @include position((right: 15px, left: auto));
+    }
+
+    .media>img.order-2 {
+        @include position((top: 15px, right: auto, bottom: auto, left: 0));
+    }
+}
+
+
+/*** 
+        Features
+        ***************/
+.f-sprite {
+    background: url('#{$assets-path}/images/home/features-s.png') no-repeat;
+    display: inline-block;
+}
+
+.sprite-personalized,
+.sprite-parsing,
+.sprite-m-learning,
+.sprite-in-one,
+.sprite-easy,
+.sprite-cloud,
+.sprite-automation,
+.sprite-accessible,
+.sprite-agent,
+.sprite-social {
+    height: 48px;
+}
+
+.sprite-arabic,
+.sprite-availabilit,
+.sprite-m-learning,
+.sprite-personalized,
+.sprite-responsive,
+.sprite-availability,
+.sprite-agent,
+.sprite-social {
+    width: 48px;
+}
+
+.sprite-agent {
+    background-position: -5px -5px;
+}
+
+.sprite-social {
+    background-position: -321px -5px;
+}
+
+.sprite-accessible {
+    width: 58px;
+    background-position: -68px -10px;
+}
+
+.sprite-arabic {
+    height: 44px;
+    background-position: -141px -10px;
+}
+
+.sprite-automation {
+    width: 42px;
+    background-position: -194px -10px;
+}
+
+.sprite-availability {
+    height: 44px;
+    background-position: -68px -68px;
+}
+
+.sprite-cloud {
+    width: 58px;
+    background-position: -126px -68px;
+}
+
+.sprite-dialogue {
+    @include size(50px, 44px);
+    background-position: -194px -73px;
+}
+
+.sprite-easy {
+    width: 46px;
+    background-position: -68px -127px;
+}
+
+.sprite-in-one {
+    width: 54px;
+    background-position: -194px -122px;
+}
+
+.sprite-m-learning {
+    background-position: -246px -10px;
+}
+
+.sprite-parsing {
+    width: 42px;
+    background-position: -258px -73px;
+}
+
+.sprite-personalized {
+    background-position: -124px -126px;
+}
+
+.sprite-responsive {
+    height: 44px;
+    background-position: -258px -126px;
+}
+
+/*** 
+        Platforms
+        ***************/
+
+.radial-social {
+    height: 500px;
+
+    @include media-breakpoint-down(xs) {
+        height: 320px;
+    }
+
+    @include media-breakpoint-between(xs, sm) {
+        height: 450px;
+    }
+}
+
+.radial-menu {
+    transform: rotate(-45deg) scale(.7);
+    transition: opacity 1s, z-index 0.3s, transform 1s;
+
+    &.active {
+        opacity: 1;
+        transform: rotate(0) scale(.7);
+
+        .radial-item {
+            opacity: 1;
+            z-index: 50;
+        }
+
+    }
+
+    @include media-breakpoint-between(xs, sm) {
+        transform: rotate(-45deg) scale(.6);
+
+        &.active {
+            transform: rotate(0) scale(0.6);
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        transform: rotate(-45deg) scale(.43);
+
+        &.active {
+            transform: rotate(0) scale(.43);
+        }
+    }
+}
+
+.rotater {
+    transform-origin: 50% 50%;
+}
+
+.rotater,
+.radial-item {
+    top: 0;
+    left: 0;
+}
+
+.radial-item {
+    width: 128px;
+    height: 128px;
+    opacity: 0;
+    z-index: 5;
+    transition: opacity 1s, transform 1s;
+    @include box-shadow(2px 2px 10px rgba(0, 0, 0, 0.16));
+    transform: translate(0);
+}
+
+.radial-main {
+    z-index: 50;
+}
+
+$menu-length: 6;
+
+@for $i from 1 to ($menu-length + 1) {
+    $radius: 360 / $menu-length;
+
+    .rotater:nth-child(#{$i}) {
+        transform: rotate(($i * $radius - 120) + deg);
+    }
+
+    .radial-menu.active .rotater:nth-child(#{$i}) .radial-item {
+        transform: translate(#{$radius}px, -225px) rotate((-1 * $i * $radius + 120) + deg);
+    }
+
+}
+
+
+.arabot-fav {
+    @include size(256px, 256px);
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.16)
+}
+
+.s-sprite {
+    background: url('#{$assets-path}/images/home/social-sprite.png') no-repeat;
+    display: inline-block;
+}
+
+.sprite-hangouts-logo,
+.sprite-messanger-logo,
+.sprite-slack-logo,
+.sprite-telegram-logo,
+.sprite-webchat-logo,
+.sprite-whatsapp-logo {
+    @include size(64px, 64px);
+}
+
+.sprite-hangouts-logo {
+    background-position: -271px -5px;
+}
+
+.sprite-messanger-logo {
+    background-position: -271px -79px;
+}
+
+.sprite-slack-logo {
+    background-position: -271px -153px;
+}
+
+.sprite-telegram-logo {
+    background-position: -271px -227px;
+}
+
+.sprite-webchat-logo {
+    background-position: -5px -301px;
+}
+
+.sprite-whatsapp-logo {
+    background-position: -79px -301px;
+}

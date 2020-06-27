@@ -1,0 +1,39 @@
+<!-- Header Section -->
+<header id="sticky-header" class="header fixed-top">
+    @@if (activeNav == "home") {
+    <!-- Top bar -->
+    <div id="top-news-bar" class="top-news bg-success position-relative overflow-h d-none">
+        <div class="container py-2">
+            <p id="top-news-bar--text" class="mb-0 pr-5 pr-lg-0 text-white small d-flex justify-content-lg-center"></p>
+        </div>
+        <span id="top-bar-close" class="icon-delete top-news-close cursor-p position-absolute text-white mr-4 my-auto"></span>
+    </div>
+    }
+    
+    <nav class="navbar navbar-dark navbar-expand-lg px-2 px-lg-0 px-xl-2">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="">
+                LOGO
+            </a>
+            <button id="navbar-toggler" name="Toggle navigation" class="navbar-toggler position-relative cursor-p collapsed border-0 p-0 ml-auto" data-target="#navbarSupportedContent">
+                <span class="hamburger d-block h-100 hamburger position-absolute w-100">
+                    <span class="d-block position-relative"></span>
+                    <span class="d-block position-relative"></span>
+                    <span class="d-block position-relative"></span>
+                </span>
+                <span class="hamburger-cross d-block h-100 position-absolute w-100">
+                    <span class="position-absolute"></span>
+                    <span class="position-absolute"></span>
+                </span>
+            </button>
+
+            <div class="collapse d-block navbar-collapse py-4 py-lg-0" id="navbarSupportedContent">
+                <ul id="menu-topbar" class="navbar-nav menu ml-auto">
+                    <li class="nav-item @@if ( activeNav == 'home' ) { active }"><a href="index.html" class="nav-link small px-xl-3" aria-label="Home page"><span
+                                    class="position-relative text-nowrap">Home</span></a></li>
+                </ul>
+                <button class="btn btn-outline-light ab-btn ab-btn-primary nav-btn ml-lg-2 d-none d-lg-block">Nav Button</button>
+            </div>
+        </div>
+    </nav>
+</header>

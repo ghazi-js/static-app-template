@@ -1,0 +1,69 @@
+<div class="footer-wrapper pt-5 pb-4">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between mb-5">
+            <div class="mb-4 mb-md-0">
+                LOGO
+            </div>
+            <div>
+                <p class="mb-1 px-1 small w-100">Newsletter label</p>
+                <form class="newsletter-form input-group position-relative">
+                    <input type="text" name="email" class="newsletter-input form-control small rounded-left" placeholder="Subscribe to our newsletter" aria-label="Subscripe" autocomplete="off">
+                    <div class="input-group-append">
+                        <button name="Subscribe Button" class="newsletter-btn btn btn-success text-white" type="submit">Subscribe</button>
+                    </div>
+                    <div id="newsletterMessage" class="form-message invalid-feedback d-block"></div>
+                    <div class="newsletter-sp d-none">
+                        <div class="d-flex align-items-center justify-content-center px-3 animate-element bg-success fade-in animated" data-animation-classes="1">
+                            <div class="loading">
+                                <div class="dot rounded-circle"></div>
+                                <div class="dot rounded-circle"></div>
+                                <div class="dot rounded-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-devider mb-4"></div>
+        <div class="row align-items-center justify-content-center justify-content-md-between">
+            <p class="col-12 col-md-8 mb-3 mb-md-0 text-center text-md-left">© <span id="currentYear">2018</span> copyrights CompanyName. All rights reserved.</p>
+            <div class="align-items-center col-12 col-md-4 d-flex justify-content-center justify-content-md-end social-links">
+                <a target="_blank" rel="noopener" href="#!" class="social-item mr-4 rounded-circle" aria-label="Facebook"><span class="icon-facebook"></span></a>
+                <a target="_blank" rel="noopener" href="#!" class="social-item mr-4 rounded-circle" aria-label="Twitter"><span class="icon-twitter"></span></a>
+                <a target="_blank" rel="noopener" href="#!" class="social-item rounded-circle" aria-label="Linkedin"><span class="icon-linkedin"></span></a>
+                <!-- TODO: Add social links -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="material-spinner" class="spinner-wrapper position-fixed h-100 w-100 d-flex align-items-center justify-content-center">
+    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+</div>
+
+
+@@for (var i = 0; i < scripts.length; i++) {
+    <script src="./js/`+ scripts[i] +`"></script>
+}
+
+<noscript>
+        <!-- Modal -->
+        <div class="modal fade show bg-white">
+            <div class="modal-dialog show modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Javascript Required</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Javascript seems to be disabled. This will break some site features.</p>
+                        <p>To enable JavaScript click <a href="//enable-javascript.com/" rel="noopener" class="d-inline-block" aria-label="Enable JavaScript">here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</noscript>
+</body>
+
+</html>

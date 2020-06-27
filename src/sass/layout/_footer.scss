@@ -1,0 +1,60 @@
+/*** 
+    Footer
+    ***************/
+    
+.footer-wrapper {
+    background: $gray-200;
+}
+
+.newsletter-form {
+    width: 445px;
+    @include media-breakpoint-down(xs) {
+        width: auto;
+    }
+}
+
+.newsletter-btn {
+    min-width: 150px;
+
+    @mixin hover-focus-active {
+
+        box-shadow: none;
+    }
+
+    @include media-breakpoint-down(xs) {
+        min-width: 100px;
+    }
+}
+
+.newsletter-input {
+    border: 1px solid #ccc;
+    border-radius: 0;
+
+    &:focus {
+        border: 1px solid $success;
+        box-shadow: none;
+    }
+}
+
+.form-snackbar, .contact-sp, .newsletter-sp > div {
+    position: absolute;
+    @include position((top:0, left: 0));
+    @include size(100%, 100%);
+    @include border-radius ($border-radius);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 4;
+    color: $white;
+
+    &.fade-in {
+        pointer-events: initial;
+    }
+
+    &.fadeout {
+        pointer-events: none;
+    }
+}
+
+.footer-devider {
+    border-top: 1px solid $dark;
+}

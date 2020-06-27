@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('#{$assets-path}/fonts/Montserrat-Regular.eot'),
+    url('#{$assets-path}/fonts/Montserrat-Regular.eot?#iefix'),
+    url('#{$assets-path}/fonts/Montserrat-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    &.pg-loading {
+        overflow: hidden;
+    }
+}
+
+.ab-wrapper {
+    padding-top: map-get($spacers, 6);
+    padding-bottom: map-get($spacers, 6);
+}
+
+.t-white {
+    color: #FFF;
+}
+
+.decoration {
+    position: relative;
+
+    &:before {
+        @include psedo-absolute();
+        @include size(24px,
+            4px);
+        @include border-radius();
+        background: #9B7CB7;
+    }
+
+    &.t-dec {
+        &:before {
+            bottom: calc(100% + 3px);
+        }
+    }
+
+    &.l-dec {
+        &:before {
+            left: 0;
+        }
+    }
+
+    &.r-dec {
+        &:before {
+            right: 0;
+        }
+    }
+
+    &.c-dec {
+        &:before {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+    }
+
+    &.dec-blue:before {
+        background: $blue;
+    }
+
+    &.dec-orange:before {
+        background: $orange;
+    }
+
+    &.dec-pink:before {
+        background: $pink;
+    }
+
+    &.dec-green:before {
+        background: $success;
+    }
+}
+
+#{$rtl-class} .decoration {
+    &.l-dec {
+        &:before {
+            left: auto;
+            right: 0;
+        }
+    }
+
+    &.r-dec {
+        &:before {
+            left: 0;
+            right: auto;
+        }
+    }
+}
+
+.ab-link {
+    &:before {
+        @include psedo-absolute();
+        @include position((bottom: -5px, left: 0));
+        @include size(100%, 1px);
+        background: $orange;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover,
+    a:hover & {
+        color: $orange !important;
+
+        &:before {
+            transform: scaleX(1);
+        }
+    }
+
+    a.text-white:hover & {
+        color: $white !important;
+    }
+
+    &.text-white {
+
+        &:before {
+            background: $white;
+        }
+
+        &:hover {
+            color: $white !important;
+
+            &:before {
+                background: $white;
+            }
+        }
+    }
+}
+
+// Chatbot 
+.chatbot-icon {
+    @include position((right: 25px, bottom: 50px));
+    @include box-shadow(0 6px 10px 0 rgba($dark, 0.3), 0 1px 18px 0 rgba($dark, 0.2), 0 3px 5px -1px rgba($dark, 0.2));
+    z-index: $zindex-fixed;
+
+
+    #{$rtl-class} & {
+        @include position((right: auto, left: 25px));
+    }
+}
+
+// Social rounded circle icons
+.social-item {
+    @include size(32px, 32px);
+    border: 1px solid $dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.border-plight {
+        border-color: $purple-light;
+    }
+}
+
+
+// Change font-sizes based on media screen
+
+@include media-breakpoint-down(xs) {
+    body {
+        font-size: 1rem;
+    }
+
+    h1,
+    h2 {
+        font-size: 2rem;
+        padding-left: 0.5rem;
+        padding-left: 0.5rem;
+    }
+    .about-us .text-justify {
+        text-align: center !important;
+    }
+}
